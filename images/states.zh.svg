@@ -1,0 +1,47 @@
+<svg font-family='-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif' viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg">
+  <!-- 主流程盒 -->
+  <rect x="16" y="40" width="126" height="42" rx="10" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <rect x="180" y="40" width="84" height="42" rx="10" fill="#EAF0FE" stroke="#155DFC" stroke-width="1.5"/>
+  <rect x="302" y="40" width="96" height="42" rx="10" fill="#155DFC"/>
+  <rect x="436" y="40" width="96" height="42" rx="10" fill="#E4F4EE" stroke="#009966" stroke-width="1.5"/>
+  <!-- 主流程箭头 -->
+  <line x1="142" y1="61" x2="171" y2="61" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="180,61 171,57 171,65" fill="#5B6B7E"/>
+  <line x1="264" y1="61" x2="293" y2="61" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="302,61 293,57 293,65" fill="#5B6B7E"/>
+  <line x1="398" y1="61" x2="427" y2="61" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="436,61 427,57 427,65" fill="#5B6B7E"/>
+  <!-- 再次充电回环 -->
+  <path d="M 484,34 C 460,8 374,8 350,34" fill="none" stroke="#009966" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <polygon points="350,34 353,24 359,31" fill="#009966"/>
+  <!-- 等待中 -->
+  <rect x="180" y="136" width="100" height="38" rx="10" fill="#E0F1F6" stroke="#0E7490" stroke-width="1.5"/>
+  <line x1="222" y1="82" x2="222" y2="127" stroke="#0E7490" stroke-width="1.5" stroke-dasharray="4 4"/><polygon points="222,136 218,127 226,127" fill="#0E7490"/>
+  <path d="M 280,155 H 350 V 91" fill="none" stroke="#0E7490" stroke-width="1.5" stroke-dasharray="4 4"/><polygon points="350,82 346,91 354,91" fill="#0E7490"/>
+  <!-- 桩侧暂停 -->
+  <rect x="252" y="226" width="190" height="44" rx="10" fill="#FBEEDB" stroke="#B45309" stroke-width="1.5"/>
+  <line x1="330" y1="82" x2="330" y2="217" stroke="#B45309" stroke-width="1.5"/><polygon points="330,226 326,217 334,217" fill="#B45309"/>
+  <line x1="368" y1="226" x2="368" y2="91" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="368,82 364,91 372,91" fill="#5B6B7E"/>
+  <!-- 车辆已暂停 -->
+  <rect x="488" y="226" width="120" height="44" rx="10" fill="#EBEFF3" stroke="#56657A" stroke-width="1.5"/>
+  <path d="M 398,74 C 470,84 505,140 533,217" fill="none" stroke="#56657A" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <polygon points="535,226 529,218 537,216" fill="#56657A"/>
+  <path d="M 560,226 C 580,150 560,110 512,88" fill="none" stroke="#5B6B7E" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <polygon points="504,84 514,83 511,91" fill="#5B6B7E"/>
+  <g class="zh">
+    <text x="79" y="65" text-anchor="middle" font-size="12" fill="#0B1526">未连接充电枪</text>
+    <text x="222" y="65" text-anchor="middle" font-size="12" font-weight="600" fill="#155DFC">就绪</text>
+    <text x="350" y="65" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">充电中</text>
+    <text x="484" y="65" text-anchor="middle" font-size="12" font-weight="600" fill="#009966">已完成</text>
+    <text x="161" y="53" text-anchor="middle" font-size="10" fill="#5B6B7E">插枪</text>
+    <text x="283" y="53" text-anchor="middle" font-size="10" fill="#5B6B7E">开始</text>
+    <text x="417" y="53" text-anchor="middle" font-size="10" fill="#5B6B7E">结束</text>
+    <text x="417" y="16" text-anchor="middle" font-size="10.5" fill="#009966">再次充电</text>
+    <text x="230" y="159" text-anchor="middle" font-size="12" font-weight="600" fill="#0E7490">等待中</text>
+    <text x="214" y="112" text-anchor="end" font-size="10.5" fill="#5B6B7E">已设预约</text>
+    <text x="315" y="170" text-anchor="middle" font-size="10.5" fill="#5B6B7E">到点自动开始</text>
+    <text x="347" y="252" text-anchor="middle" font-size="12" fill="#B45309">充电已被充电桩暂停</text>
+    <text x="322" y="204" text-anchor="end" font-size="10.5" fill="#5B6B7E">桩侧保护 / 预约暂停</text>
+    <text x="376" y="204" text-anchor="start" font-size="10.5" fill="#5B6B7E">恢复充电</text>
+    <text x="548" y="252" text-anchor="middle" font-size="12" fill="#56657A">车辆已暂停</text>
+    <text x="508" y="150" text-anchor="start" font-size="10.5" fill="#5B6B7E">车端要求</text>
+    <text x="584" y="150" text-anchor="start" font-size="10.5" fill="#5B6B7E">停止充电</text>
+  </g>
+</svg>

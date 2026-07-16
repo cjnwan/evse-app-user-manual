@@ -1,0 +1,34 @@
+<svg font-family='-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif' viewBox="0 0 640 252" xmlns="http://www.w3.org/2000/svg">
+  <!-- 手机 -->
+  <rect x="40" y="70" width="50" height="100" rx="12" fill="#FFFFFF" stroke="#0B1526" stroke-width="1.5"/>
+  <rect x="47" y="80" width="36" height="64" rx="4" fill="#EAF0FE"/>
+  <circle cx="65" cy="158" r="3.5" fill="#5B6B7E"/>
+  <!-- 充电桩 -->
+  <rect x="550" y="58" width="60" height="112" rx="12" fill="#FFFFFF" stroke="#0B1526" stroke-width="1.5"/>
+  <rect x="559" y="70" width="42" height="30" rx="4" fill="#E4F4EE"/>
+  <circle cx="580" cy="112" r="2.5" fill="#009966"/>
+  <circle cx="580" cy="134" r="9" fill="#F3F7F9" stroke="#0B1526" stroke-width="1.5"/>
+  <circle cx="580" cy="134" r="3.5" fill="#5B6B7E"/>
+  <!-- 蓝牙近场：上弧 -->
+  <path d="M 96,100 C 220,54 420,54 544,100" fill="none" stroke="#155DFC" stroke-width="2"/>
+  <polygon points="96,100 106,95 106,105" fill="#155DFC"/>
+  <polygon points="544,100 534,95 534,105" fill="#155DFC"/>
+  <!-- 云端远程：下双弧 + 云 -->
+  <path d="M 96,140 C 170,186 220,196 264,198" fill="none" stroke="#0E7490" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M 376,198 C 440,196 490,186 544,140" fill="none" stroke="#0E7490" stroke-width="2" stroke-dasharray="5 5"/>
+  <polygon points="96,140 106,135 106,145" fill="#0E7490"/>
+  <polygon points="544,140 534,135 534,145" fill="#0E7490"/>
+  <g fill="#E0F1F6">
+    <circle cx="305" cy="192" r="13"/><circle cx="322" cy="184" r="16"/><circle cx="340" cy="193" r="12"/>
+    <rect x="294" y="192" width="56" height="13" rx="6"/>
+  </g>
+  <g class="zh">
+    <rect x="272" y="40" width="96" height="26" rx="13" fill="#EAF0FE"/>
+    <text x="320" y="57" text-anchor="middle" font-size="12.5" font-weight="600" fill="#155DFC">蓝牙近场</text>
+    <text x="320" y="88" text-anchor="middle" font-size="11" fill="#5B6B7E">在桩旁 · 手机直连，不依赖家庭网络</text>
+    <text x="65" y="196" text-anchor="middle" font-size="12" fill="#5B6B7E">手机 App</text>
+    <text x="580" y="196" text-anchor="middle" font-size="12" fill="#5B6B7E">充电桩</text>
+    <text x="320" y="228" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0E7490">云端远程</text>
+    <text x="320" y="245" text-anchor="middle" font-size="11" fill="#5B6B7E">不在桩旁 · 经充电桩的家庭 Wi-Fi 中转，自动切换</text>
+  </g>
+</svg>

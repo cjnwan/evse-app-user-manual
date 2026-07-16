@@ -1,0 +1,33 @@
+<svg font-family='-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif' viewBox="0 0 640 292" xmlns="http://www.w3.org/2000/svg">
+  <rect x="120" y="16" width="100" height="26" rx="13" fill="#EFEAFB"/>
+  <rect x="395" y="16" width="150" height="26" rx="13" fill="#EAF0FE"/>
+  <!-- 在线分享 -->
+  <rect x="375" y="82" width="190" height="32" rx="8" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <path d="M 375,98 H 305 V 126 H 274" fill="none" stroke="#5B6B7E" stroke-width="1.5"/>
+  <polygon points="265,126 274,122 274,130" fill="#5B6B7E"/>
+  <rect x="75" y="118" width="190" height="32" rx="8" fill="#EFEAFB" stroke="#6D4FC4" stroke-width="1.5"/>
+  <path d="M 265,142 H 322 V 172 H 371" fill="none" stroke="#5B6B7E" stroke-width="1.5"/>
+  <polygon points="380,172 371,168 371,176" fill="#5B6B7E"/>
+  <rect x="375" y="156" width="190" height="32" rx="8" fill="#E4F4EE" stroke="#009966" stroke-width="1.5"/>
+  <!-- 分隔 -->
+  <line x1="20" y1="212" x2="620" y2="212" stroke="#E1E8EF" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- 近场分享码 -->
+  <rect x="75" y="244" width="190" height="32" rx="8" fill="#EAF0FE" stroke="#155DFC" stroke-width="1.5"/>
+  <line x1="265" y1="260" x2="371" y2="260" stroke="#5B6B7E" stroke-width="1.5"/>
+  <polygon points="380,260 371,256 371,264" fill="#5B6B7E"/>
+  <rect x="375" y="244" width="190" height="32" rx="8" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <g class="zh">
+    <text x="170" y="33" text-anchor="middle" font-size="12.5" font-weight="600" fill="#6D4FC4">物主</text>
+    <text x="470" y="33" text-anchor="middle" font-size="12.5" font-weight="600" fill="#155DFC">家人（共享用户）</text>
+    <text x="20" y="70" font-size="11" font-weight="700" letter-spacing="2" fill="#5B6B7E">在线分享</text>
+    <text x="470" y="102" text-anchor="middle" font-size="12" fill="#0B1526">打开 我的 → 设备分享</text>
+    <text x="340" y="92" text-anchor="middle" font-size="10.5" fill="#5B6B7E">出示邀请码</text>
+    <text x="170" y="138" text-anchor="middle" font-size="12" fill="#6D4FC4">扫描邀请码 · 选有效期</text>
+    <text x="470" y="204" text-anchor="middle" font-size="10.5" fill="#5B6B7E">云端签发 · 每台设备最多 10 个在线分享</text>
+    <text x="470" y="176" text-anchor="middle" font-size="12" fill="#009966">设备出现在首页 ·「共享」</text>
+    <text x="20" y="234" font-size="11" font-weight="700" letter-spacing="2" fill="#5B6B7E">近场分享码</text>
+    <text x="170" y="264" text-anchor="middle" font-size="12" fill="#155DFC">桩旁生成分享码（1小时–30天）</text>
+    <text x="322" y="252" text-anchor="middle" font-size="10.5" fill="#B45309">不经云端 · 码即钥匙</text>
+    <text x="470" y="264" text-anchor="middle" font-size="12" fill="#0B1526">扫码或粘贴导入</text>
+  </g>
+</svg>

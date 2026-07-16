@@ -1,0 +1,30 @@
+<svg font-family='-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif' viewBox="0 0 680 168" xmlns="http://www.w3.org/2000/svg">
+  <rect x="16" y="64" width="88" height="40" rx="10" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <rect x="128" y="64" width="100" height="40" rx="10" fill="#FFFFFF" stroke="#5B6B7E" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="252" y="64" width="92" height="40" rx="10" fill="#155DFC"/>
+  <rect x="368" y="64" width="92" height="40" rx="10" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <rect x="484" y="64" width="88" height="40" rx="10" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <rect x="592" y="64" width="72" height="40" rx="10" fill="#E4F4EE" stroke="#009966" stroke-width="1.5"/>
+  <line x1="104" y1="84" x2="119" y2="84" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="128,84 119,80 119,88" fill="#5B6B7E"/>
+  <line x1="228" y1="84" x2="243" y2="84" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="252,84 243,80 243,88" fill="#5B6B7E"/>
+  <line x1="344" y1="84" x2="359" y2="84" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="368,84 359,80 359,88" fill="#5B6B7E"/>
+  <line x1="460" y1="84" x2="475" y2="84" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="484,84 475,80 475,88" fill="#5B6B7E"/>
+  <line x1="572" y1="84" x2="583" y2="84" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="592,84 583,80 583,88" fill="#5B6B7E"/>
+  <path d="M 60,104 C 100,146 250,146 292,110" fill="none" stroke="#5B6B7E" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <polygon points="295,106 288,113 296,116" fill="#5B6B7E"/>
+  <path d="M 320,104 C 360,150 480,150 522,110" fill="none" stroke="#5B6B7E" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <polygon points="525,106 518,113 526,116" fill="#5B6B7E"/>
+  <g class="en">
+    <text x="60" y="88" text-anchor="middle" font-size="10" fill="#0B1526">Choose method</text>
+    <text x="178" y="88" text-anchor="middle" font-size="10" fill="#0B1526">Scan QR code</text>
+    <text x="178" y="54" text-anchor="middle" font-size="9.5" fill="#5B6B7E">optional</text>
+    <text x="298" y="88" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF">Bluetooth claim</text>
+    <text x="298" y="54" text-anchor="middle" font-size="9.5" fill="#155DFC">next to charger</text>
+    <text x="414" y="88" text-anchor="middle" font-size="10" fill="#0B1526">Connect to WiFi</text>
+    <text x="414" y="54" text-anchor="middle" font-size="9.5" fill="#5B6B7E">sign-in · skippable</text>
+    <text x="528" y="88" text-anchor="middle" font-size="10" fill="#0B1526">Name device</text>
+    <text x="628" y="88" text-anchor="middle" font-size="10" font-weight="600" fill="#009966">All set</text>
+    <text x="176" y="145" text-anchor="middle" font-size="10" fill="#5B6B7E">straight to Bluetooth</text>
+    <text x="421" y="149" text-anchor="middle" font-size="10" fill="#5B6B7E">"Skip — use Bluetooth only"</text>
+  </g>
+</svg>
