@@ -4,7 +4,7 @@
 
 | 脚本 | 用途 |
 |---|---|
-| `build_diagrams.py` | 4 张示意图单源生成：master（双语文本 + CSS 变量）→ ① index.html 内联（随语言/明暗切换）② `images/*.{zh,en}.svg` 独立浅色文件。改图只改 master，跑一遍两种形态同步。**改完必须渲染目检**（`rsvg-convert` 出 PNG 过眼，手排坐标容易压框）。 |
+| `build_diagrams.py` | 5 张示意图单源刷新（双通道/七状态/分享泳道/配对步骤条/DLB 原理）：master（双语文本 + CSS 变量）→ ① index.html 内联按 viewBox 整块替换（随语言/明暗切换）② `images/*.{zh,en}.svg` 独立浅色文件。**幂等可重复运行**；改图只改 master，跑一遍两种形态同步；新图需先手动把 figure 插入 index.html 一次。**改完必须渲染目检**（`rsvg-convert` 出 PNG 过眼，手排坐标容易压框）。 |
 | `shoot.sh` / `shoot2.sh` | 模拟器中文截图批（deeplink 免点按配方）。 |
 | `shoot_en.sh` | 英文批（先 `defaults write <bid> EVSEAppLanguage en`）。 |
 | `shoot_dlb.sh` / `shoot_dlb_en.sh` | DLB 能耗段中/英截图：`dev/wallbox?dlb=1`（mock 种 DLB 演示遥测块 + 注入 `bs40-22-eu-dlb-solar` 能力）；第二张带 `EVSE_QA_SCROLL_Y=620` 滚到分配卡，成图后 PIL `crop((0, 465, 1206, 1520))` 出特写。 |

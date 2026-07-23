@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-# 单源生成说明书示意图：master(双语+CSS变量) → ①Artifact 内联 ②docs images 独立浅色 SVG(中英各一)
-import re, os
+# 说明书示意图单源刷新：master（双语 g.zh/g.en + CSS 变量色）→
+#   ① images/*.{zh,en}.svg 独立浅色文件（md 引用）
+#   ② index.html 内联块按 viewBox 定位整块替换（随语言/明暗切换）
+# 幂等：可重复运行；新增图时先手动把 <figure class="diagram">…</figure> 插进 index.html 一次，
+# 之后由本脚本刷新。改完 master 必须 rsvg-convert 渲染目检（手排坐标易压框）。
+import os, re
 
-ROOT = "/Users/apple/Documents/workspace/work/EVSEProNew"
-SCRATCH = "/private/tmp/claude-501/-Users-apple-Documents-workspace-work-EVSEProNew/aaa3a2c3-1c0a-4162-803b-649aa9f62331/scratchpad"
-IMG = os.path.join(ROOT, "docs/user-manual/images")
-os.makedirs(IMG, exist_ok=True)
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # 仓根
+IMG = os.path.join(ROOT, "images")
+INDEX = os.path.join(ROOT, "index.html")
 
-# 浅色定稿色值（与 Artifact light tokens 一致）
 HEX = {
     "--blue": "#155DFC", "--teal": "#0E7490", "--green": "#009966", "--amber": "#B45309",
     "--violet": "#6D4FC4", "--slate": "#56657A", "--muted": "#5B6B7E", "--ink": "#0B1526",
@@ -17,7 +19,6 @@ HEX = {
 }
 FONT = '-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif'
 
-# ═════════ D1 两条控制通道 ═════════
 D1 = '''<svg viewBox="0 0 640 252" xmlns="http://www.w3.org/2000/svg">
   <!-- 手机 -->
   <rect x="40" y="70" width="50" height="100" rx="12" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>
@@ -62,7 +63,6 @@ D1 = '''<svg viewBox="0 0 640 252" xmlns="http://www.w3.org/2000/svg">
   </g>
 </svg>'''
 
-# ═════════ D2 七种状态流转 ═════════
 D2 = '''<svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg">
   <!-- 主流程盒 -->
   <rect x="16" y="40" width="126" height="42" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
@@ -131,7 +131,6 @@ D2 = '''<svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg">
   </g>
 </svg>'''
 
-# ═════════ D3 设备分享双泳道 ═════════
 D3 = '''<svg viewBox="0 0 640 292" xmlns="http://www.w3.org/2000/svg">
   <rect x="120" y="16" width="100" height="26" rx="13" fill="var(--violet-tint)"/>
   <rect x="395" y="16" width="150" height="26" rx="13" fill="var(--blue-tint)"/>
@@ -180,7 +179,6 @@ D3 = '''<svg viewBox="0 0 640 292" xmlns="http://www.w3.org/2000/svg">
   </g>
 </svg>'''
 
-# ═════════ D4 配对步骤条 ═════════
 D4 = '''<svg viewBox="0 0 680 168" xmlns="http://www.w3.org/2000/svg">
   <rect x="16" y="64" width="88" height="40" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
   <rect x="128" y="64" width="100" height="40" rx="10" fill="var(--card)" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4"/>
@@ -225,101 +223,96 @@ D4 = '''<svg viewBox="0 0 680 168" xmlns="http://www.w3.org/2000/svg">
   </g>
 </svg>'''
 
+D5 = '''<svg viewBox="0 0 640 372" xmlns="http://www.w3.org/2000/svg">
+  <!-- 拓扑行 -->
+  <rect x="30" y="40" width="84" height="44" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="158" y="40" width="110" height="44" rx="10" fill="var(--teal-tint)" stroke="var(--teal)" stroke-width="1.5"/>
+  <rect x="312" y="40" width="96" height="44" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="470" y="12" width="120" height="40" rx="10" fill="var(--slate-tint)" stroke="var(--slate)" stroke-width="1.5"/>
+  <rect x="470" y="76" width="120" height="40" rx="10" fill="var(--blue)"/>
+  <line x1="114" y1="62" x2="149" y2="62" stroke="var(--muted)" stroke-width="1.5"/><polygon points="158,62 149,58 149,66" fill="var(--muted)"/>
+  <line x1="268" y1="62" x2="303" y2="62" stroke="var(--muted)" stroke-width="1.5"/><polygon points="312,62 303,58 303,66" fill="var(--muted)"/>
+  <path d="M 408,55 C 430,45 445,38 461,34" fill="none" stroke="var(--muted)" stroke-width="1.5"/><polygon points="470,32 461,30 462,38" fill="var(--muted)"/>
+  <path d="M 408,69 C 430,79 445,86 461,90" fill="none" stroke="var(--muted)" stroke-width="1.5"/><polygon points="470,92 461,86 462,94" fill="var(--muted)"/>
+  <path d="M 213,84 C 240,140 380,140 461,104" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <polygon points="470,100 460,101 464,108" fill="var(--teal)"/>
+  <!-- 分配条：1A ≈ 16.25px，总 32A=520px（x30-550）；段间 2px gap -->
+  <rect x="30"  y="230" width="128" height="32" rx="6" fill="var(--slate-tint)" stroke="var(--slate)" stroke-width="1"/>
+  <rect x="160" y="230" width="390" height="32" rx="6" fill="var(--blue)"/>
+  <rect x="30"  y="300" width="323" height="32" rx="6" fill="var(--amber-tint)" stroke="var(--amber)" stroke-width="1"/>
+  <rect x="355" y="300" width="195" height="32" rx="6" fill="var(--blue)"/>
+  <line x1="550" y1="222" x2="550" y2="340" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"/>
+  <g class="zh">
+    <text x="72" y="67" text-anchor="middle" font-size="12" fill="var(--ink)">电网</text>
+    <text x="213" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="var(--teal)">CT 采集盒</text>
+    <text x="360" y="67" text-anchor="middle" font-size="12" fill="var(--ink)">家庭配电</text>
+    <text x="530" y="37" text-anchor="middle" font-size="12" fill="var(--slate)">家用电器</text>
+    <text x="530" y="101" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">充电桩</text>
+    <text x="330" y="152" text-anchor="middle" font-size="10.5" fill="var(--teal)">实时电流读数</text>
+    <text x="30" y="203" font-size="12.5" font-weight="600" fill="var(--ink)">「入户上限」32 A 内动态分配</text>
+    <text x="550" y="203" text-anchor="end" font-size="10.5" fill="var(--muted)">← 32 A →</text>
+    <text x="30" y="224" font-size="10.5" fill="var(--muted)">家里用电少 → 充电全速</text>
+    <text x="94" y="250" text-anchor="middle" font-size="11" fill="var(--slate)">家庭 8 A</text>
+    <text x="355" y="250" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">充电 24 A</text>
+    <text x="30" y="294" font-size="10.5" fill="var(--muted)">家里用电多 → 桩自动让电</text>
+    <text x="191" y="320" text-anchor="middle" font-size="11" fill="var(--amber)">家庭 20 A</text>
+    <text x="452" y="320" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">充电 12 A</text>
+    <text x="30" y="362" font-size="10.5" fill="var(--muted)">充电段不低于「最低充电电流」（6 A 起）；再不足则暂停，负荷下降后自动恢复。</text>
+  </g>
+  <g class="en">
+    <text x="72" y="67" text-anchor="middle" font-size="11" fill="var(--ink)">Grid</text>
+    <text x="213" y="67" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--teal)">CT sensing box</text>
+    <text x="360" y="67" text-anchor="middle" font-size="10" fill="var(--ink)">Distribution</text>
+    <text x="530" y="37" text-anchor="middle" font-size="10.5" fill="var(--slate)">Appliances</text>
+    <text x="530" y="101" text-anchor="middle" font-size="10.5" font-weight="600" fill="#FFFFFF">Charger</text>
+    <text x="330" y="152" text-anchor="middle" font-size="10" fill="var(--teal)">live current readings</text>
+    <text x="30" y="203" font-size="12" font-weight="600" fill="var(--ink)">Dynamic allocation within the 32 A "Max into house" cap</text>
+    <text x="550" y="203" text-anchor="end" font-size="10" fill="var(--muted)">← 32 A →</text>
+    <text x="30" y="224" font-size="10" fill="var(--muted)">House quiet → full-speed charging</text>
+    <text x="94" y="250" text-anchor="middle" font-size="10.5" fill="var(--slate)">Home 8 A</text>
+    <text x="355" y="250" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Charging 24 A</text>
+    <text x="30" y="294" font-size="10" fill="var(--muted)">House busy → the charger yields</text>
+    <text x="191" y="320" text-anchor="middle" font-size="10.5" fill="var(--amber)">Home 20 A</text>
+    <text x="452" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Charging 12 A</text>
+    <text x="30" y="362" font-size="10" fill="var(--muted)">The charging share never drops below "Min charging current" (6 A+); below that it pauses and auto-resumes.</text>
+  </g>
+</svg>'''
+
+
+
 DIAGRAMS = {
-    "channels": (D1, "两条控制通道", "The two control channels"),
-    "states":   (D2, "实时页七种状态流转", "Now-page state flow"),
-    "sharing":  (D3, "设备分享的两种方式", "Two ways to share a device"),
-    "pairing":  (D4, "添加充电桩流程", "Add-a-charger flow"),
+    "channels": D1,
+    "states":   D2,
+    "sharing":  D3,
+    "pairing":  D4,
+    "dlb":      D5,
 }
 
 def standalone(svg, lang):
-    out = svg
     other = "en" if lang == "zh" else "zh"
-    out = re.sub(r'  <g class="%s">.*?</g>\n' % other, "", out, flags=re.S)
-    for var, hexv in HEX.items():
-        out = out.replace("var(%s)" % var, hexv)
-    out = out.replace('<svg ', '<svg font-family=\'%s\' ' % FONT, 1)
-    return out
+    out = re.sub(r'  <g class="%s">.*?</g>\n' % other, "", svg, flags=re.S)
+    for k, v in HEX.items():
+        out = out.replace("var(%s)" % k, v)
+    return out.replace('<svg ', "<svg font-family='%s' " % FONT, 1)
 
-# ① 独立文件（中英各一，浅色定稿）
-for name, (svg, _zh, _en) in DIAGRAMS.items():
-    for lang in ("zh", "en"):
-        path = os.path.join(IMG, "%s.%s.svg" % (name, lang))
-        open(path, "w").write(standalone(svg, lang))
-        print("wrote", path)
+def main():
+    for name, svg in DIAGRAMS.items():
+        for lang in ("zh", "en"):
+            path = os.path.join(IMG, "%s.%s.svg" % (name, lang))
+            open(path, "w").write(standalone(svg, lang))
+            print("wrote", os.path.relpath(path, ROOT))
+    h = open(INDEX).read()
+    for name, svg in DIAGRAMS.items():
+        vb = re.search(r'viewBox="([^"]+)"', svg).group(1)
+        marker = '<svg viewBox="%s"' % vb
+        if marker not in h:
+            print("SKIP inline (not present yet):", name)
+            continue
+        s = h.index(marker)
+        e = h.index("</svg>", s) + len("</svg>")
+        h = h[:s] + svg + h[e:]
+        print("inline refreshed:", name)
+    open(INDEX, "w").write(h)
 
-# ② Artifact 内联
-art = os.path.join(SCRATCH, "evsepro-user-manual.html")
-html = open(art).read()
-
-def figure(name):
-    svg, zh, en = DIAGRAMS[name]
-    return ('\n    <figure class="diagram" role="img" aria-label="%s / %s">\n%s\n'
-            '      <figcaption><span class="zh">%s</span><span class="en">%s</span></figcaption>\n    </figure>\n'
-            % (zh, en, svg, zh, en))
-
-# CSS
-css_anchor = "  footer { color: var(--muted); font-size: 13px; padding-top: 8px; }"
-assert css_anchor in html
-html = html.replace(css_anchor, """  /* ── 示意图 ── */
-  figure.diagram { margin: 6px 0 20px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 14px 10px; }
-  figure.diagram svg { width: 100%; height: auto; display: block; }
-  figure.diagram text { font-family: inherit; }
-  figure.diagram figcaption { font-size: 12.5px; color: var(--muted); text-align: center; padding: 8px 0 4px; }
-
-""" + css_anchor, 1)
-# 打印防断
-pb = "    .tw, .note, .card, ol.steps > li, tr { break-inside: avoid; }"
-assert pb in html
-html = html.replace(pb, "    .tw, .note, .card, ol.steps > li, tr, figure.diagram { break-inside: avoid; }", 1)
-
-# D1 → §1.3 末尾
-a1 = 'marked <span class="b b-near">Nearby</span> throughout.</li>\n    </ul>\n  </section>'
-assert a1 in html
-html = html.replace(a1, a1.replace("</section>", figure("channels") + "  </section>"), 1)
-# D2 → §4.1 标题后
-a2 = '<h3><span class="zh">七种状态一览</span><span class="en">The seven states</span></h3>'
-assert a2 in html
-html = html.replace(a2, a2 + figure("states"), 1)
-# D3 → §9 两种方式表格后（英文表格结束处）
-a3 = '<tr><td>Nearby share code</td><td>Any charger (incl. offline-only)</td><td class="num">1 h / 24 h / 7 d / 30 d</td><td>Expires automatically; recipient can remove it locally</td></tr>\n    </table></div>'
-assert a3 in html
-html = html.replace(a3, a3 + figure("sharing"), 1)
-# D4 → §2.3 引言后
-a4 = '<p class="en">On Home tap "Add a device" or "+":</p>'
-assert a4 in html
-html = html.replace(a4, a4 + figure("pairing"), 1)
-
-open(art, "w").write(html)
-print("artifact patched, len =", len(html))
-
-# ③ Markdown（中英各插 4 图）
-def patch_md(path, pairs):
-    src = open(path).read()
-    for anchor, insert, before in pairs:
-        assert anchor in src, "MISSING ANCHOR in %s: %r" % (path, anchor[:60])
-        src = src.replace(anchor, (insert + anchor) if before else (anchor + insert), 1)
-    open(path, "w").write(src)
-    print("patched", path)
-
-zh_md = os.path.join(ROOT, "docs/user-manual/EVSEPro-使用功能说明书.md")
-patch_md(zh_md, [
-    ("- 少数操作是蓝牙近场专属（屏幕亮度、温度单位、启动方式、负载均衡配置、固件升级、解绑），手册中以 🔵 标注。",
-     "\n\n![两条控制通道示意图](images/channels.zh.svg)", False),
-    ("\n> 配对过程若提示「该充电桩已被认领」",
-     "\n![添加充电桩流程](images/pairing.zh.svg)\n", True),
-    ("### 4.1 七种状态一览\n", "\n![实时页状态流转图](images/states.zh.svg)\n", False),
-    ("\n### 9.1 物主视角：发起分享", "\n![设备分享的两种方式](images/sharing.zh.svg)\n", True),
-])
-
-en_md = os.path.join(ROOT, "docs/user-manual/EVSEPro-User-Manual.en.md")
-patch_md(en_md, [
-    ("- A few operations are Bluetooth-only (screen brightness, temperature unit, start method, load-balancing configuration, firmware update, unpairing) — marked 🔵 throughout.",
-     "\n\n![The two control channels](images/channels.en.svg)", False),
-    ("\n> If pairing reports the charger",
-     "\n![Add-a-charger flow](images/pairing.en.svg)\n", True),
-    ("### 4.1 The seven states\n", "\n![Now-page state flow](images/states.en.svg)\n", False),
-    ("\n### 9.1 Owner: initiating", "\n![Two ways to share a device](images/sharing.en.svg)\n", True),
-])
-
-print("ALL DONE")
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,37 @@
+<svg font-family='-apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif' viewBox="0 0 640 372" xmlns="http://www.w3.org/2000/svg">
+  <!-- 拓扑行 -->
+  <rect x="30" y="40" width="84" height="44" rx="10" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <rect x="158" y="40" width="110" height="44" rx="10" fill="#E0F1F6" stroke="#0E7490" stroke-width="1.5"/>
+  <rect x="312" y="40" width="96" height="44" rx="10" fill="#FFFFFF" stroke="#E1E8EF" stroke-width="1.5"/>
+  <rect x="470" y="12" width="120" height="40" rx="10" fill="#EBEFF3" stroke="#56657A" stroke-width="1.5"/>
+  <rect x="470" y="76" width="120" height="40" rx="10" fill="#155DFC"/>
+  <line x1="114" y1="62" x2="149" y2="62" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="158,62 149,58 149,66" fill="#5B6B7E"/>
+  <line x1="268" y1="62" x2="303" y2="62" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="312,62 303,58 303,66" fill="#5B6B7E"/>
+  <path d="M 408,55 C 430,45 445,38 461,34" fill="none" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="470,32 461,30 462,38" fill="#5B6B7E"/>
+  <path d="M 408,69 C 430,79 445,86 461,90" fill="none" stroke="#5B6B7E" stroke-width="1.5"/><polygon points="470,92 461,86 462,94" fill="#5B6B7E"/>
+  <path d="M 213,84 C 240,140 380,140 461,104" fill="none" stroke="#0E7490" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <polygon points="470,100 460,101 464,108" fill="#0E7490"/>
+  <!-- 分配条：1A ≈ 16.25px，总 32A=520px（x30-550）；段间 2px gap -->
+  <rect x="30"  y="230" width="128" height="32" rx="6" fill="#EBEFF3" stroke="#56657A" stroke-width="1"/>
+  <rect x="160" y="230" width="390" height="32" rx="6" fill="#155DFC"/>
+  <rect x="30"  y="300" width="323" height="32" rx="6" fill="#FBEEDB" stroke="#B45309" stroke-width="1"/>
+  <rect x="355" y="300" width="195" height="32" rx="6" fill="#155DFC"/>
+  <line x1="550" y1="222" x2="550" y2="340" stroke="#E1E8EF" stroke-width="1" stroke-dasharray="3 3"/>
+  <g class="zh">
+    <text x="72" y="67" text-anchor="middle" font-size="12" fill="#0B1526">电网</text>
+    <text x="213" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="#0E7490">CT 采集盒</text>
+    <text x="360" y="67" text-anchor="middle" font-size="12" fill="#0B1526">家庭配电</text>
+    <text x="530" y="37" text-anchor="middle" font-size="12" fill="#56657A">家用电器</text>
+    <text x="530" y="101" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">充电桩</text>
+    <text x="330" y="152" text-anchor="middle" font-size="10.5" fill="#0E7490">实时电流读数</text>
+    <text x="30" y="203" font-size="12.5" font-weight="600" fill="#0B1526">「入户上限」32 A 内动态分配</text>
+    <text x="550" y="203" text-anchor="end" font-size="10.5" fill="#5B6B7E">← 32 A →</text>
+    <text x="30" y="224" font-size="10.5" fill="#5B6B7E">家里用电少 → 充电全速</text>
+    <text x="94" y="250" text-anchor="middle" font-size="11" fill="#56657A">家庭 8 A</text>
+    <text x="355" y="250" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">充电 24 A</text>
+    <text x="30" y="294" font-size="10.5" fill="#5B6B7E">家里用电多 → 桩自动让电</text>
+    <text x="191" y="320" text-anchor="middle" font-size="11" fill="#B45309">家庭 20 A</text>
+    <text x="452" y="320" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">充电 12 A</text>
+    <text x="30" y="362" font-size="10.5" fill="#5B6B7E">充电段不低于「最低充电电流」（6 A 起）；再不足则暂停，负荷下降后自动恢复。</text>
+  </g>
+</svg>

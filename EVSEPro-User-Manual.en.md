@@ -294,6 +294,8 @@ Device page → Status tab → "Energy" segment. 🔧 Only on models with dynami
 
 **What dynamic load balancing (DLB) solves**: a home's main breaker has limited capacity — a charger at full power while big appliances run (AC, induction hob, water heater) can trip it. With DLB on, the charger senses whole-home consumption in real time through the CT current-sensing box and adjusts its charging current automatically — yielding when the house is busy, speeding up when it's quiet, keeping total load inside the safe envelope with no manual action.
 
+![How DLB works](images/dlb.en.svg)
+
 ### 8.1 Live energy flow (read-only, visible to everyone)
 
 Animated flow between solar / grid / home / charger nodes. The charger node shows live power; grid and solar current readings come from the optional CT current-sensing box — they show real values only with the box installed and load balancing on, otherwise "—".
