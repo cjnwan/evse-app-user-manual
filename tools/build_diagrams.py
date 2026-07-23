@@ -223,58 +223,68 @@ D4 = '''<svg viewBox="0 0 680 168" xmlns="http://www.w3.org/2000/svg">
   </g>
 </svg>'''
 
-D5 = '''<svg viewBox="0 0 640 372" xmlns="http://www.w3.org/2000/svg">
-  <!-- 拓扑行 -->
-  <rect x="30" y="40" width="84" height="44" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
-  <rect x="158" y="40" width="110" height="44" rx="10" fill="var(--teal-tint)" stroke="var(--teal)" stroke-width="1.5"/>
-  <rect x="312" y="40" width="96" height="44" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
-  <rect x="470" y="12" width="120" height="40" rx="10" fill="var(--slate-tint)" stroke="var(--slate)" stroke-width="1.5"/>
-  <rect x="470" y="76" width="120" height="40" rx="10" fill="var(--blue)"/>
-  <line x1="114" y1="62" x2="149" y2="62" stroke="var(--muted)" stroke-width="1.5"/><polygon points="158,62 149,58 149,66" fill="var(--muted)"/>
-  <line x1="268" y1="62" x2="303" y2="62" stroke="var(--muted)" stroke-width="1.5"/><polygon points="312,62 303,58 303,66" fill="var(--muted)"/>
-  <path d="M 408,55 C 430,45 445,38 461,34" fill="none" stroke="var(--muted)" stroke-width="1.5"/><polygon points="470,32 461,30 462,38" fill="var(--muted)"/>
-  <path d="M 408,69 C 430,79 445,86 461,90" fill="none" stroke="var(--muted)" stroke-width="1.5"/><polygon points="470,92 461,86 462,94" fill="var(--muted)"/>
-  <path d="M 213,84 C 240,140 380,140 461,104" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="4 4"/>
-  <polygon points="470,100 460,101 464,108" fill="var(--teal)"/>
+D5 = '''<svg viewBox="0 0 640 402" xmlns="http://www.w3.org/2000/svg">
+  <!-- 源侧：电网 + 光伏（选配）两路都经 CT 采集盒采样 -->
+  <rect x="30" y="24" width="84" height="40" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="30" y="84" width="84" height="40" rx="10" fill="var(--amber-tint)" stroke="var(--amber)" stroke-width="1.5"/>
+  <rect x="158" y="34" width="110" height="80" rx="10" fill="var(--teal-tint)" stroke="var(--teal)" stroke-width="1.5"/>
+  <rect x="312" y="54" width="96" height="40" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1.5"/>
+  <rect x="470" y="16" width="120" height="40" rx="10" fill="var(--slate-tint)" stroke="var(--slate)" stroke-width="1.5"/>
+  <rect x="470" y="92" width="120" height="40" rx="10" fill="var(--blue)"/>
+  <line x1="114" y1="44" x2="149" y2="44" stroke="var(--muted)" stroke-width="1.5"/><polygon points="158,44 149,40 149,48" fill="var(--muted)"/>
+  <line x1="114" y1="104" x2="149" y2="104" stroke="var(--muted)" stroke-width="1.5"/><polygon points="158,104 149,100 149,108" fill="var(--muted)"/>
+  <line x1="268" y1="74" x2="303" y2="74" stroke="var(--muted)" stroke-width="1.5"/><polygon points="312,74 303,70 303,78" fill="var(--muted)"/>
+  <path d="M 408,64 C 430,54 445,44 461,40" fill="none" stroke="var(--muted)" stroke-width="1.5"/><polygon points="470,38 461,36 462,44" fill="var(--muted)"/>
+  <path d="M 408,84 C 430,94 445,102 461,106" fill="none" stroke="var(--muted)" stroke-width="1.5"/><polygon points="470,108 461,102 462,110" fill="var(--muted)"/>
+  <path d="M 213,114 C 245,158 380,158 461,122" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <polygon points="470,118 460,119 464,126" fill="var(--teal)"/>
   <!-- 分配条：1A ≈ 16.25px，总 32A=520px（x30-550）；段间 2px gap -->
-  <rect x="30"  y="230" width="128" height="32" rx="6" fill="var(--slate-tint)" stroke="var(--slate)" stroke-width="1"/>
-  <rect x="160" y="230" width="390" height="32" rx="6" fill="var(--blue)"/>
-  <rect x="30"  y="300" width="323" height="32" rx="6" fill="var(--amber-tint)" stroke="var(--amber)" stroke-width="1"/>
-  <rect x="355" y="300" width="195" height="32" rx="6" fill="var(--blue)"/>
-  <line x1="550" y1="222" x2="550" y2="340" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect x="30"  y="258" width="128" height="32" rx="6" fill="var(--slate-tint)" stroke="var(--slate)" stroke-width="1"/>
+  <rect x="160" y="258" width="390" height="32" rx="6" fill="var(--blue)"/>
+  <rect x="30"  y="328" width="323" height="32" rx="6" fill="var(--amber-tint)" stroke="var(--amber)" stroke-width="1"/>
+  <rect x="355" y="328" width="195" height="32" rx="6" fill="var(--blue)"/>
+  <line x1="550" y1="250" x2="550" y2="368" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"/>
   <g class="zh">
-    <text x="72" y="67" text-anchor="middle" font-size="12" fill="var(--ink)">电网</text>
-    <text x="213" y="67" text-anchor="middle" font-size="12" font-weight="600" fill="var(--teal)">CT 采集盒</text>
-    <text x="360" y="67" text-anchor="middle" font-size="12" fill="var(--ink)">家庭配电</text>
-    <text x="530" y="37" text-anchor="middle" font-size="12" fill="var(--slate)">家用电器</text>
-    <text x="530" y="101" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">充电桩</text>
-    <text x="330" y="152" text-anchor="middle" font-size="10.5" fill="var(--teal)">实时电流读数</text>
-    <text x="30" y="203" font-size="12.5" font-weight="600" fill="var(--ink)">「入户上限」32 A 内动态分配</text>
-    <text x="550" y="203" text-anchor="end" font-size="10.5" fill="var(--muted)">← 32 A →</text>
-    <text x="30" y="224" font-size="10.5" fill="var(--muted)">家里用电少 → 充电全速</text>
-    <text x="94" y="250" text-anchor="middle" font-size="11" fill="var(--slate)">家庭 8 A</text>
-    <text x="355" y="250" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">充电 24 A</text>
-    <text x="30" y="294" font-size="10.5" fill="var(--muted)">家里用电多 → 桩自动让电</text>
-    <text x="191" y="320" text-anchor="middle" font-size="11" fill="var(--amber)">家庭 20 A</text>
-    <text x="452" y="320" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">充电 12 A</text>
-    <text x="30" y="362" font-size="10.5" fill="var(--muted)">充电段不低于「最低充电电流」（6 A 起）；再不足则暂停，负荷下降后自动恢复。</text>
+    <text x="72" y="49" text-anchor="middle" font-size="12" fill="var(--ink)">电网</text>
+    <text x="72" y="107" text-anchor="middle" font-size="12" fill="var(--amber)">光伏</text>
+    <text x="72" y="139" text-anchor="middle" font-size="9" fill="var(--muted)">光伏机型</text>
+    <text x="213" y="70" text-anchor="middle" font-size="12" font-weight="600" fill="var(--teal)">CT 采集盒</text>
+    <text x="213" y="86" text-anchor="middle" font-size="9.5" fill="var(--teal)">采两路电流</text>
+    <text x="360" y="79" text-anchor="middle" font-size="12" fill="var(--ink)">家庭配电</text>
+    <text x="530" y="41" text-anchor="middle" font-size="12" fill="var(--slate)">家用电器</text>
+    <text x="530" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">充电桩</text>
+    <text x="337" y="168" text-anchor="middle" font-size="10.5" fill="var(--teal)">电网 + 光伏实时电流</text>
+    <text x="30" y="196" font-size="10.5" fill="var(--muted)">家庭负载不直接测量：由桩推算 = 进线 + 光伏 − 充电（充电电流来自桩自身计量芯片）</text>
+    <text x="30" y="231" font-size="12.5" font-weight="600" fill="var(--ink)">「入户上限」32 A 内动态分配</text>
+    <text x="550" y="231" text-anchor="end" font-size="10.5" fill="var(--muted)">← 32 A →</text>
+    <text x="30" y="252" font-size="10.5" fill="var(--muted)">家里用电少 → 充电全速</text>
+    <text x="94" y="278" text-anchor="middle" font-size="11" fill="var(--slate)">家庭 8 A</text>
+    <text x="355" y="278" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">充电 24 A</text>
+    <text x="30" y="322" font-size="10.5" fill="var(--muted)">家里用电多 → 桩自动让电</text>
+    <text x="191" y="348" text-anchor="middle" font-size="11" fill="var(--amber)">家庭 20 A</text>
+    <text x="452" y="348" text-anchor="middle" font-size="11.5" font-weight="600" fill="#FFFFFF">充电 12 A</text>
+    <text x="30" y="392" font-size="10.5" fill="var(--muted)">充电段不低于「最低充电电流」（6 A 起）；再不足则暂停，负荷下降后自动恢复。</text>
   </g>
   <g class="en">
-    <text x="72" y="67" text-anchor="middle" font-size="11" fill="var(--ink)">Grid</text>
-    <text x="213" y="67" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--teal)">CT sensing box</text>
-    <text x="360" y="67" text-anchor="middle" font-size="10" fill="var(--ink)">Distribution</text>
-    <text x="530" y="37" text-anchor="middle" font-size="10.5" fill="var(--slate)">Appliances</text>
-    <text x="530" y="101" text-anchor="middle" font-size="10.5" font-weight="600" fill="#FFFFFF">Charger</text>
-    <text x="330" y="152" text-anchor="middle" font-size="10" fill="var(--teal)">live current readings</text>
-    <text x="30" y="203" font-size="12" font-weight="600" fill="var(--ink)">Dynamic allocation within the 32 A "Max into house" cap</text>
-    <text x="550" y="203" text-anchor="end" font-size="10" fill="var(--muted)">← 32 A →</text>
-    <text x="30" y="224" font-size="10" fill="var(--muted)">House quiet → full-speed charging</text>
-    <text x="94" y="250" text-anchor="middle" font-size="10.5" fill="var(--slate)">Home 8 A</text>
-    <text x="355" y="250" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Charging 24 A</text>
-    <text x="30" y="294" font-size="10" fill="var(--muted)">House busy → the charger yields</text>
-    <text x="191" y="320" text-anchor="middle" font-size="10.5" fill="var(--amber)">Home 20 A</text>
-    <text x="452" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Charging 12 A</text>
-    <text x="30" y="362" font-size="10" fill="var(--muted)">The charging share never drops below "Min charging current" (6 A+); below that it pauses and auto-resumes.</text>
+    <text x="72" y="49" text-anchor="middle" font-size="11" fill="var(--ink)">Grid</text>
+    <text x="72" y="107" text-anchor="middle" font-size="11" fill="var(--amber)">Solar</text>
+    <text x="72" y="139" text-anchor="middle" font-size="8.5" fill="var(--muted)">solar models</text>
+    <text x="213" y="70" text-anchor="middle" font-size="10.5" font-weight="600" fill="var(--teal)">CT sensing box</text>
+    <text x="213" y="86" text-anchor="middle" font-size="8.5" fill="var(--teal)">samples both feeds</text>
+    <text x="360" y="79" text-anchor="middle" font-size="10" fill="var(--ink)">Distribution</text>
+    <text x="530" y="41" text-anchor="middle" font-size="10.5" fill="var(--slate)">Appliances</text>
+    <text x="530" y="117" text-anchor="middle" font-size="10.5" font-weight="600" fill="#FFFFFF">Charger</text>
+    <text x="337" y="168" text-anchor="middle" font-size="10" fill="var(--teal)">live grid + solar currents</text>
+    <text x="30" y="196" font-size="9.5" fill="var(--muted)">Home load is never measured directly — the charger derives it: grid + solar − charging (its own current comes from its metering chip)</text>
+    <text x="30" y="231" font-size="12" font-weight="600" fill="var(--ink)">Dynamic allocation within the 32 A "Max into house" cap</text>
+    <text x="550" y="231" text-anchor="end" font-size="10" fill="var(--muted)">← 32 A →</text>
+    <text x="30" y="252" font-size="10" fill="var(--muted)">House quiet → full-speed charging</text>
+    <text x="94" y="278" text-anchor="middle" font-size="10.5" fill="var(--slate)">Home 8 A</text>
+    <text x="355" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Charging 24 A</text>
+    <text x="30" y="322" font-size="10" fill="var(--muted)">House busy → the charger yields</text>
+    <text x="191" y="348" text-anchor="middle" font-size="10.5" fill="var(--amber)">Home 20 A</text>
+    <text x="452" y="348" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Charging 12 A</text>
+    <text x="30" y="392" font-size="10" fill="var(--muted)">The charging share never drops below "Min charging current" (6 A+); below that it pauses and auto-resumes.</text>
   </g>
 </svg>'''
 

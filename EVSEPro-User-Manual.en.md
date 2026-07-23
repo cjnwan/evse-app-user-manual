@@ -292,7 +292,7 @@ Everything about one session: status (Completed / Charging / Stopped), energy, c
 
 Device page → Status tab → "Energy" segment. 🔧 Only on models with dynamic load balancing (DLB).
 
-**What dynamic load balancing (DLB) solves**: a home's main breaker has limited capacity — a charger at full power while big appliances run (AC, induction hob, water heater) can trip it. With DLB on, the charger senses whole-home consumption in real time through the CT current-sensing box and adjusts its charging current automatically — yielding when the house is busy, speeding up when it's quiet, keeping total load inside the safe envelope with no manual action.
+**What dynamic load balancing (DLB) solves**: a home's main breaker has limited capacity — a charger at full power while big appliances run (AC, induction hob, water heater) can trip it. With DLB on, the CT sensing box samples the grid intake and solar feed in real time; the charger combines them with its own metered current to derive the household load, and adjusts its charging current automatically — yielding when the house is busy, speeding up when it's quiet, keeping total load inside the safe envelope with no manual action.
 
 ![How DLB works](images/dlb.en.svg)
 
