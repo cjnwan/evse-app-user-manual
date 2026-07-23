@@ -253,7 +253,7 @@ D5 = '''<svg viewBox="0 0 640 402" xmlns="http://www.w3.org/2000/svg">
     <text x="360" y="79" text-anchor="middle" font-size="12" fill="var(--ink)">家庭配电</text>
     <text x="530" y="41" text-anchor="middle" font-size="12" fill="var(--slate)">家用电器</text>
     <text x="530" y="117" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">充电桩</text>
-    <text x="337" y="168" text-anchor="middle" font-size="10.5" fill="var(--teal)">电网 + 光伏实时电流</text>
+    <text x="337" y="168" text-anchor="middle" font-size="10.5" fill="var(--teal)">桩轮询回读：电网 + 光伏实时电流</text>
     <text x="30" y="196" font-size="10.5" fill="var(--muted)">家庭负载不直接测量：由桩推算 = 进线 + 光伏 − 充电（充电电流来自桩自身计量芯片）</text>
     <text x="30" y="231" font-size="12.5" font-weight="600" fill="var(--ink)">「入户上限」32 A 内动态分配</text>
     <text x="550" y="231" text-anchor="end" font-size="10.5" fill="var(--muted)">← 32 A →</text>
@@ -274,7 +274,7 @@ D5 = '''<svg viewBox="0 0 640 402" xmlns="http://www.w3.org/2000/svg">
     <text x="360" y="79" text-anchor="middle" font-size="10" fill="var(--ink)">Distribution</text>
     <text x="530" y="41" text-anchor="middle" font-size="10.5" fill="var(--slate)">Appliances</text>
     <text x="530" y="117" text-anchor="middle" font-size="10.5" font-weight="600" fill="#FFFFFF">Charger</text>
-    <text x="337" y="168" text-anchor="middle" font-size="10" fill="var(--teal)">live grid + solar currents</text>
+    <text x="337" y="168" text-anchor="middle" font-size="9.5" fill="var(--teal)">polled by the charger: live grid + solar currents</text>
     <text x="30" y="196" font-size="9.5" fill="var(--muted)">Home load is never measured directly — the charger derives it: grid + solar − charging (its own current comes from its metering chip)</text>
     <text x="30" y="231" font-size="12" font-weight="600" fill="var(--ink)">Dynamic allocation within the 32 A "Max into house" cap</text>
     <text x="550" y="231" text-anchor="end" font-size="10" fill="var(--muted)">← 32 A →</text>

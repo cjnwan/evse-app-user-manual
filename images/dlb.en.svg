@@ -28,7 +28,7 @@
     <text x="360" y="79" text-anchor="middle" font-size="10" fill="#0B1526">Distribution</text>
     <text x="530" y="41" text-anchor="middle" font-size="10.5" fill="#56657A">Appliances</text>
     <text x="530" y="117" text-anchor="middle" font-size="10.5" font-weight="600" fill="#FFFFFF">Charger</text>
-    <text x="337" y="168" text-anchor="middle" font-size="10" fill="#0E7490">live grid + solar currents</text>
+    <text x="337" y="168" text-anchor="middle" font-size="9.5" fill="#0E7490">polled by the charger: live grid + solar currents</text>
     <text x="30" y="196" font-size="9.5" fill="#5B6B7E">Home load is never measured directly — the charger derives it: grid + solar − charging (its own current comes from its metering chip)</text>
     <text x="30" y="231" font-size="12" font-weight="600" fill="#0B1526">Dynamic allocation within the 32 A "Max into house" cap</text>
     <text x="550" y="231" text-anchor="end" font-size="10" fill="#5B6B7E">← 32 A →</text>
