@@ -319,7 +319,7 @@ The Load balancing card offers the "Dynamic load balancing" master switch and th
 
 | Slider | Meaning | Guidance |
 |---|---|---|
-| Max into house (6–100 A) | The most current the charger may draw | Stay within your main breaker / service capacity — ask an electrician if unsure |
+| Max into house (6–100 A) | **Cap on total house intake** — household load plus charging stays within it; the engine allocates dynamically | Stay within your main breaker / service capacity — ask an electrician if unsure |
 | Grid limit (0–100 A, 0 = unlimited) | Total grid-intake current cap | Set it when your meter or supply contract has a cap |
 | Min charging current (from 6 A) | Floor current (6 A is the lowest the charging protocol allows) | Usually leave the default; in Hybrid it guarantees progress |
 
